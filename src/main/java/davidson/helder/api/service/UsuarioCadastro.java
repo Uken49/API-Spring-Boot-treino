@@ -4,9 +4,9 @@ import davidson.helder.api.model.Usuario;
 
 public class UsuarioCadastro {
     private final int id;
-    private String nome;
-    private String senha;
-    private String email;
+    private final String nome;
+    private final String senha;
+    private final String email;
 
     public UsuarioCadastro(Usuario usuario) {
         this.id = usuario.getId();
