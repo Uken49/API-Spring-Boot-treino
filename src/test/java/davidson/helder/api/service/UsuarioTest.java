@@ -17,9 +17,6 @@ class UsuarioTest {
         List<Usuario> listaUsuario = Usuario.Lista.getListaUsuarios();
         listaUsuario.clear();
 
-        assertEquals(0, listaUsuario.size());
-
-
         Usuario.Cadastro usuario = new Usuario.Cadastro(
                 new Usuario(0, "helder", "123", "helder@gmail.com")
         );
