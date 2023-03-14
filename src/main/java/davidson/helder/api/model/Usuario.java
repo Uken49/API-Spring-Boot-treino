@@ -1,7 +1,5 @@
 package davidson.helder.api.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,7 @@ public class Usuario {
 
     public static class Lista {
 
-        private static List<Usuario> listaUsuarios = new ArrayList<>();
+        private static final List<Usuario> listaUsuarios = new ArrayList<>();
 
         public static void addUsuario(Usuario usuario) {
             if (usuarioExiste(usuario.getId())) return;
@@ -105,7 +103,6 @@ public class Usuario {
         this.nome = nome;
     }
 
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     public String getSenha() {
         return senha;
     }
