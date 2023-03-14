@@ -2,6 +2,8 @@ package davidson.helder.api.service;
 
 import java.util.List;
 
+import davidson.helder.api.dto.UsuarioDTO.Cadastro;
+import davidson.helder.api.dto.UsuarioDTO.Lista;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,43 +16,40 @@ class UsuarioTest {
 
     @BeforeEach
     void limparListaECadastrarUsuario() {
-        List<Usuario> listaUsuario = Usuario.Lista.getListaUsuarios();
+        List<Usuario> listaUsuario = Lista.getListaUsuarios();
         listaUsuario.clear();
 
-        assertEquals(0, listaUsuario.size());
-
-
-        Usuario.Cadastro usuario = new Usuario.Cadastro(
+        Cadastro usuario = new Cadastro(
                 new Usuario(0, "helder", "123", "helder@gmail.com")
         );
 
-        Usuario.Cadastro.cadastrarUsuario(usuario);
+        Cadastro.cadastrarUsuario(usuario);
         assertEquals(1, listaUsuario.size());
     }
 
     @Test
     @DisplayName("Cadastro de usuário")
     void cadastrarUsuario() {
-        Usuario.Cadastro usuario = new Usuario.Cadastro(
+        Cadastro usuario = new Cadastro(
                 new Usuario(1, "joao", "123", "joao@bobo.com")
         );
 
-        Usuario.Cadastro.cadastrarUsuario(usuario);
-        assertEquals(2, Usuario.Lista.getListaUsuarios().size());
+        Cadastro.cadastrarUsuario(usuario);
+        assertEquals(2, Lista.getListaUsuarios().size());
 
-        Usuario.Cadastro.cadastrarUsuario(usuario);
-        assertEquals(2, Usuario.Lista.getListaUsuarios().size());
+        Cadastro.cadastrarUsuario(usuario);
+        assertEquals(2, Lista.getListaUsuarios().size());
     }
 
     @Test
     @DisplayName("Exibir um usuário")
     void exibirUmUsuario() {
-        List<Usuario> listaUsuario = Usuario.Lista.getListaUsuarios();
+        List<Usuario> listaUsuario = Lista.getListaUsuarios();
 
-        final int id = Usuario.Lista.getUsuario(0).getId();
-        final String nome = Usuario.Lista.getUsuario(0).getNome();
-        final String email = Usuario.Lista.getUsuario(0).getEmail();
-        final boolean contaAutenticada = Usuario.Lista.getUsuario(0).getContaAutenticada();
+        final int id = Lista.getUsuario(0).getId();
+        final String nome = Lista.getUsuario(0).getNome();
+        final String email = Lista.getUsuario(0).getEmail();
+        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
 
         assertEquals(0, id);
         assertEquals("helder", nome);
