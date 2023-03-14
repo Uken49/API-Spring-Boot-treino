@@ -1,6 +1,7 @@
 package davidson.helder.api.controller;
 
 import davidson.helder.api.model.Usuario.Cadastro;
+import davidson.helder.api.model.Usuario.Lista;
 import org.springframework.web.bind.annotation.*;
 
 import davidson.helder.api.model.Usuario;
@@ -16,5 +17,14 @@ public class UsuariosController {
         Cadastro.cadastrarUsuario(new Cadastro(novoUsuario));
     }
 
+    @GetMapping()
+    public List<Usuario> exibirListaUsuario(){
+        return Lista.getListaUsuarios();
+    }
+
+    @GetMapping("/{id}")
+    public Usuario exibirUmUsuario(@PathVariable int id){
+        return Lista.getUsuario(id);
+    }
 
 }
