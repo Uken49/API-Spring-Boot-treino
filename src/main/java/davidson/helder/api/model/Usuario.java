@@ -1,5 +1,7 @@
 package davidson.helder.api.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Usuario {
     private final int id;
     private String nome;
@@ -27,6 +29,7 @@ public class Usuario {
         this.nome = nome;
     }
 
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     public String getSenha() {
         return senha;
     }

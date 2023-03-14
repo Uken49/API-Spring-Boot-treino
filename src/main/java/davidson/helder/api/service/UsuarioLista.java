@@ -17,17 +17,17 @@ public abstract class UsuarioLista {
     public static void removeUsuario(int id) {
         if (!usuarioExiste(id)) return;
 
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getId() != id) continue;
+        for (Usuario indexUsuario : listaUsuarios) {
+            if (indexUsuario.getId() != id) continue;
 
-            listaUsuarios.remove(usuario);
+            listaUsuarios.remove(indexUsuario);
             return;
         }
     }
 
     private static boolean usuarioExiste(int id) {
-        for (Usuario usuarioLista : listaUsuarios) {
-            if (usuarioLista.getId() != id) continue;
+        for (Usuario indexUsuario : listaUsuarios) {
+            if (indexUsuario.getId() != id) continue;
 
             return true;
         }
@@ -36,6 +36,21 @@ public abstract class UsuarioLista {
 
     public static List<Usuario> getListaUsuarios() {
         return listaUsuarios;
+    }
+
+    public static Usuario getUsuario(int id){
+
+        if (!usuarioExiste(id)) return null;
+
+        for (Usuario indexUsuario:
+             listaUsuarios) {
+
+            if (indexUsuario.getId() != id) continue;
+
+            return indexUsuario;
+        }
+
+        return null;
     }
 
 }

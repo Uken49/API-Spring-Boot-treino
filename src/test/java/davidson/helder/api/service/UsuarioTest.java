@@ -1,8 +1,5 @@
 package davidson.helder.api.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import davidson.helder.api.model.Usuario;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UsuarioTest {
 
@@ -33,7 +32,7 @@ public class UsuarioTest {
     @DisplayName("Cadastro de usuário")
     public void cadastrarUsuario() {
         UsuarioCadastro usuario = new UsuarioCadastro(
-            new Usuario(1, "helder", "123", "email")
+            new Usuario(1, "joao", "@321", "email")
         );
 
         usuario.cadastrarUsuario(usuario);
@@ -46,16 +45,20 @@ public class UsuarioTest {
     }
 
     @Test
-    @DisplayName("Exibir usuário")
-    public void exibirUsuario() {
+    @DisplayName("Exibir um usuário")
+    public void exibirUmUsuario(){
         List<Usuario> listaUsuario = UsuarioLista.getListaUsuarios();
 
-        UsuarioExibir usuario = new UsuarioExibir(listaUsuario.get(0));
+        final int id = UsuarioLista.getUsuario(0).getId();
+        final String nome = UsuarioLista.getUsuario(0).getNome();
+        final String email = UsuarioLista.getUsuario(0).getEmail();
+        final boolean contaAutenticada = UsuarioLista.getUsuario(0).getContaAutenticada();
 
-        assertEquals(0, usuario.getId());
-        assertEquals("helder", usuario.getNome());
-        assertEquals("email", usuario.getEmail());
-        assertFalse(usuario.getContaAutenticada());
+        assertEquals(0, id);
+        assertEquals("helder", nome);
+        assertEquals("email", email);
+        assertFalse(contaAutenticada);
 
     }
+
 }
