@@ -1,7 +1,8 @@
 package davidson.helder.api.controller;
 
-import davidson.helder.api.model.Usuario.Cadastro;
-import davidson.helder.api.model.Usuario.Lista;
+import davidson.helder.api.dto.UsuarioDTO;
+import davidson.helder.api.dto.UsuarioDTO.Cadastro;
+import davidson.helder.api.dto.UsuarioDTO.Lista;
 import org.springframework.web.bind.annotation.*;
 
 import davidson.helder.api.model.Usuario;
