@@ -73,7 +73,7 @@ public class UsuarioDTO {
 
         public static void alterarEmail(int id, String email){
             Lista.getUsuario(id).setEmail(email);
-            Lista.getUsuario(id).setcontaAutenticada(false);
+            Lista.getUsuario(id).setContaAutenticada(false);
         }
     }
 

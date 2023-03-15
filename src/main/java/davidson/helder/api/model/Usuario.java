@@ -49,13 +49,10 @@ public class Usuario {
         return contaAutenticada;
     }
 
-    public void setcontaAutenticada(boolean contaAutenticada) {
-        this.contaAutenticada = contaAutenticada;
-    }
-
     public void setContaAutenticada(boolean contaAutenticada) {
         this.contaAutenticada = contaAutenticada;
     }
+
 
     public boolean isLogado() {
         return logado;
