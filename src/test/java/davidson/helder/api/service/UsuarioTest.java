@@ -2,6 +2,7 @@ package davidson.helder.api.service;
 
 import java.util.List;
 
+import davidson.helder.api.dto.UsuarioDTO.AtualizarUsuario;
 import davidson.helder.api.dto.UsuarioDTO.Cadastro;
 import davidson.helder.api.dto.UsuarioDTO.Lista;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,15 +17,14 @@ class UsuarioTest {
 
     @BeforeEach
     void limparListaECadastrarUsuario() {
-        List<Usuario> listaUsuario = Lista.getListaUsuarios();
-        listaUsuario.clear();
+        Lista.getListaUsuarios().clear();
 
         Cadastro usuario = new Cadastro(
                 new Usuario(0, "helder", "123", "helder@gmail.com")
         );
 
         Cadastro.cadastrarUsuario(usuario);
-        assertEquals(1, listaUsuario.size());
+        assertEquals(1, Lista.getListaUsuarios().size());
     }
 
     @Test
@@ -44,7 +44,6 @@ class UsuarioTest {
     @Test
     @DisplayName("Exibir um usuário")
     void exibirUmUsuario() {
-        List<Usuario> listaUsuario = Lista.getListaUsuarios();
 
         final int id = Lista.getUsuario(0).getId();
         final String nome = Lista.getUsuario(0).getNome();
@@ -56,6 +55,53 @@ class UsuarioTest {
         assertEquals("helder@gmail.com", email);
         assertFalse(contaAutenticada);
 
+    }
+
+    @Test
+    @DisplayName("Excluir usuário")
+    void excluirUsuario(){
+        Lista.removeUsuario(0);
+        assertEquals(0, Lista.getListaUsuarios().size());
+    }
+
+    @Test
+    @DisplayName("Atualizar usuário")
+    void atualizarUsuario(){
+        AtualizarUsuario.atualizarDados(0, "harley", "segura");
+
+        assertEquals(1, Lista.getListaUsuarios().size());
+
+        final int id = Lista.getUsuario(0).getId();
+        final String nome = Lista.getUsuario(0).getNome();
+        final String email = Lista.getUsuario(0).getEmail();
+        final String senha = Lista.getUsuario(0).getSenha();
+        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
+
+        assertEquals(0, id);
+        assertEquals("harley", nome);
+        assertEquals("segura", senha);
+        assertEquals("helder@gmail.com", email);
+        assertFalse(contaAutenticada);
+    }
+
+    @Test
+    @DisplayName("Atualizar email")
+    void alterarEmail(){
+        AtualizarUsuario.alterarEmail(0, "meci@goat.com");
+
+        assertEquals(1, Lista.getListaUsuarios().size());
+
+        final int id = Lista.getUsuario(0).getId();
+        final String nome = Lista.getUsuario(0).getNome();
+        final String email = Lista.getUsuario(0).getEmail();
+        final String senha = Lista.getUsuario(0).getSenha();
+        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
+
+        assertEquals(0, id);
+        assertEquals("helder", nome);
+        assertEquals("123", senha);
+        assertEquals("meci@goat.com", email);
+        assertFalse(contaAutenticada);
     }
 
 }

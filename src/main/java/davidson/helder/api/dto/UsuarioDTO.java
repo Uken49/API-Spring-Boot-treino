@@ -58,18 +58,14 @@ public class UsuarioDTO {
 
     public static class AtualizarUsuario{
 
-        public static void atualizarDados(Usuario usuario){
-            usuario.setNome(usuario.getNome());
-            usuario.setSenha(usuario.getSenha());
+        public static void atualizarDados(int id, String nome, String senha){
+            Lista.getUsuario(id).setNome(nome);
+            Lista.getUsuario(id).setSenha(senha);
         }
 
-        public static void alterarEmail(Usuario usuario){
-            usuario.setEmail(usuario.getEmail());
-            usuario.setcontaAutenticada(false);
-        }
-
-        public static void autenticarEmail(Usuario usuario){
-            usuario.setcontaAutenticada(true);
+        public static void alterarEmail(int id, String email){
+            Lista.getUsuario(id).setEmail(email);
+            Lista.getUsuario(id).setcontaAutenticada(false);
         }
     }
 
