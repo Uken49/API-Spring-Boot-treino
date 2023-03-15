@@ -1,7 +1,5 @@
 package davidson.helder.api.service;
 
-import java.util.List;
-
 import davidson.helder.api.dto.UsuarioDTO.AtualizarUsuario;
 import davidson.helder.api.dto.UsuarioDTO.Cadastro;
 import davidson.helder.api.dto.UsuarioDTO.Lista;
@@ -48,7 +46,7 @@ class UsuarioTest {
         final int id = Lista.getUsuario(0).getId();
         final String nome = Lista.getUsuario(0).getNome();
         final String email = Lista.getUsuario(0).getEmail();
-        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
+        final boolean contaAutenticada = Lista.getUsuario(0).isContaAutenticada();
 
         assertEquals(0, id);
         assertEquals("helder", nome);
@@ -75,7 +73,7 @@ class UsuarioTest {
         final String nome = Lista.getUsuario(0).getNome();
         final String email = Lista.getUsuario(0).getEmail();
         final String senha = Lista.getUsuario(0).getSenha();
-        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
+        final boolean contaAutenticada = Lista.getUsuario(0).isContaAutenticada();
 
         assertEquals(0, id);
         assertEquals("harley", nome);
@@ -95,7 +93,7 @@ class UsuarioTest {
         final String nome = Lista.getUsuario(0).getNome();
         final String email = Lista.getUsuario(0).getEmail();
         final String senha = Lista.getUsuario(0).getSenha();
-        final boolean contaAutenticada = Lista.getUsuario(0).getContaAutenticada();
+        final boolean contaAutenticada = Lista.getUsuario(0).isContaAutenticada();
 
         assertEquals(0, id);
         assertEquals("helder", nome);

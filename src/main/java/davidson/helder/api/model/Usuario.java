@@ -1,8 +1,5 @@
 package davidson.helder.api.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Usuario {
     private final int id;
     private String nome;
@@ -46,7 +43,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public boolean getContaAutenticada() {
+    public boolean isContaAutenticada() {
         return contaAutenticada;
     }
 
