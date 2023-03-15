@@ -56,6 +56,19 @@ public class UsuarioDTO {
 
     }
 
+    public static class AtualizarUsuario{
+
+        public static void atualizarDados(int id, String nome, String senha){
+            Lista.getUsuario(id).setNome(nome);
+            Lista.getUsuario(id).setSenha(senha);
+        }
+
+        public static void alterarEmail(int id, String email){
+            Lista.getUsuario(id).setEmail(email);
+            Lista.getUsuario(id).setcontaAutenticada(false);
+        }
+    }
+
     public static class Cadastro {
         private final int id;
         private final String nome;
