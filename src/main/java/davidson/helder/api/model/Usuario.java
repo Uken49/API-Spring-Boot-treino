@@ -6,6 +6,7 @@ public class Usuario {
     private String senha;
     private String email;
     private boolean contaAutenticada;
+    private boolean logado;
 
     public Usuario(int id, String nome, String senha, String email) {
         this.id = id;
@@ -13,6 +14,7 @@ public class Usuario {
         this.senha = senha;
         this.email = email;
         this.contaAutenticada = false;
+        this.logado = false;
     }
 
     public int getId() {
@@ -51,4 +53,15 @@ public class Usuario {
         this.contaAutenticada = contaAutenticada;
     }
 
+    public void setContaAutenticada(boolean contaAutenticada) {
+        this.contaAutenticada = contaAutenticada;
+    }
+
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
+    }
 }
